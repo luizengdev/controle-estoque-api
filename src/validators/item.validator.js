@@ -4,8 +4,6 @@ const { validatorMessage } = require('../utils/errorMessage');
 const create = function() {
     return [
         body('nome', validatorMessage('Nome')).exists().bail().isString(),
-        body('email', validatorMessage('Email')).exists().bail().isString(),
-        body('senha', validatorMessage('Senha')).exists().bail().isString(),
     ]
 }
 
@@ -28,17 +26,9 @@ const deleteId = function() {
     ]
 }
 
-const login = function() {
-    return [
-        body('email', validatorMessage('Email')).exists().bail().isString(),
-        body('senha', validatorMessage('Senha')).exists().bail().isString(),
-    ]
-}
-
 module.exports = {
     create: create,
     update: update,
     findById: findById,
     deleteId: deleteId,
-    login: login,
 };
