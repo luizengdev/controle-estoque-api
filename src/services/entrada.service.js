@@ -22,7 +22,7 @@ const findAll = async function() {
 }
 
 const findById = async function(id) {
-    const entrada = await entradaRepository.findById(id);
+    const entrada = await entradaRepository.findWhere({ id: id });
    
     if(!entrada) {
         return createEerror(404, 'Entrada não encontrado');
